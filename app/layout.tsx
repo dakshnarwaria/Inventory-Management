@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'StockPilot | RDBMS Inventory Management System',
-  description: 'Full-stack Inventory Management System backed by MySQL relational database stockpilot.',
+  title: 'StockPilot | Inventory Management System',
+  description: 'Full-stack Inventory Management System backed by MySQL database stockpilot.',
 };
 
 export default function RootLayout({

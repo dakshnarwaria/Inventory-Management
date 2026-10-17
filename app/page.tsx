@@ -62,14 +62,11 @@ export default function DashboardPage() {
       {/* Top Header & Context */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-theme">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-theme flex items-center gap-2">
+          <h1 className="text-2xl font-bold tracking-tight text-theme">
             Warehouse Dashboard
-            <span className="text-xs px-2 py-0.5 rounded-full font-normal bg-amber-500/10 text-amber-500 border border-amber-500/20">
-              Live SQL Pool
-            </span>
           </h1>
           <p className="text-xs text-muted-theme mt-1 flex flex-wrap items-center gap-2">
-            <span>Powered by MySQL database <code className="font-mono text-amber-500">stockpilot</code></span>
+            <span>MySQL database <code className="font-mono text-amber-500">stockpilot</code></span>
             <span>&bull;</span>
             <RdbmsBadge type="view" name="low_stock_products" />
             <RdbmsBadge type="view" name="sales_summary" />
@@ -354,7 +351,7 @@ export default function DashboardPage() {
               <h4 className="text-sm font-semibold text-theme">RDBMS Feature Checklist</h4>
             </div>
             <p className="text-xs text-muted-theme mb-3">
-              College project evaluation highlights implemented in MySQL:
+              Key MySQL database features active in this system:
             </p>
 
             <ul className="space-y-2 text-xs">

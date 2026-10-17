@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onMenuToggle }: HeaderProps) {
-  const [showRdbmsInfo, setShowRdbmsInfo] = useState(false);
+  const [showSchemaInfo, setShowSchemaInfo] = useState(false);
 
   return (
     <>
@@ -24,26 +24,20 @@ export default function Header({ onMenuToggle }: HeaderProps) {
           >
             <Menu className="w-5 h-5" />
           </button>
-
-          <div className="hidden sm:flex items-center gap-2">
-            <span className="text-xs px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 font-medium border border-amber-500/20">
-              College RDBMS Project
-            </span>
-          </div>
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-3">
-          {/* Quick RDBMS Info Modal Trigger */}
+          {/* Schema Info Modal Trigger */}
           <button
-            onClick={() => setShowRdbmsInfo(true)}
+            onClick={() => setShowSchemaInfo(true)}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-theme text-xs font-medium text-theme hover:bg-surface-hover transition-colors cursor-pointer"
-            title="Inspect MySQL RDBMS Features (Triggers, Views, Stored Procedures)"
+            title="View Database Schema (Triggers, Views, Stored Procedures)"
           >
             <Code2 className="w-3.5 h-3.5 text-amber-500" />
-            <span>SQL Schema Info</span>
+            <span>SQL Schema</span>
           </button>
 
-          {/* Quick Transaction Action buttons */}
+          {/* Quick new sale button */}
           <Link
             href="/sales/new"
             className="btn-primary text-xs !py-1.5 !px-3 shadow-xs"
@@ -57,12 +51,12 @@ export default function Header({ onMenuToggle }: HeaderProps) {
         </div>
       </header>
 
-      {/* RDBMS Architecture Info Modal for Evaluation / College Viva */}
+      {/* Database Schema Info Modal */}
       <Modal
-        isOpen={showRdbmsInfo}
-        onClose={() => setShowRdbmsInfo(false)}
-        title="MySQL Database Architecture (stockpilot)"
-        subtitle="Overview of Schema, Triggers, Views & Stored Procedures"
+        isOpen={showSchemaInfo}
+        onClose={() => setShowSchemaInfo(false)}
+        title="Database Schema — stockpilot"
+        subtitle="Triggers, Views & Stored Procedures"
         maxWidth="lg"
       >
         <div className="space-y-4 text-xs">
@@ -72,7 +66,7 @@ export default function Header({ onMenuToggle }: HeaderProps) {
               Connected Database: <span className="font-mono text-amber-500">stockpilot</span>
             </h4>
             <p className="text-muted-theme">
-              Implemented using relational MySQL constraints, foreign keys with ON DELETE blocks, transactions, and automated business triggers.
+              Relational MySQL schema with foreign key constraints, ON DELETE blocks, ACID transactions, and automated business triggers.
             </p>
           </div>
 
@@ -109,7 +103,7 @@ export default function Header({ onMenuToggle }: HeaderProps) {
 
           <div className="space-y-2">
             <h5 className="font-semibold text-theme uppercase tracking-wider text-[11px] text-emerald-400">
-              Active Stored Procedures
+              Stored Procedures
             </h5>
             <div className="grid grid-cols-1 gap-2 font-mono">
               <div className="p-2.5 rounded bg-surface border border-theme">
@@ -126,10 +120,10 @@ export default function Header({ onMenuToggle }: HeaderProps) {
 
           <div className="pt-2 flex justify-end">
             <button
-              onClick={() => setShowRdbmsInfo(false)}
+              onClick={() => setShowSchemaInfo(false)}
               className="btn-primary text-xs"
             >
-              Close Inspector
+              Close
             </button>
           </div>
         </div>

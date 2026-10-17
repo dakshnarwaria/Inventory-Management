@@ -1,6 +1,6 @@
-# StockPilot — RDBMS Inventory Management System
+# StockPilot — Inventory Management System
 
-A full-stack Inventory Management System built for a college Relational Database Management Systems (RDBMS) project. The application demonstrates real-world database concepts in MySQL: automated triggers, stored procedures, pre-computed views, foreign key integrity constraints, and ACID transactions.
+A full-stack inventory management application backed by MySQL. It demonstrates relational database concepts including automated triggers, stored procedures, views, foreign-key integrity constraints, and ACID transactions.
 
 Backed by **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and native connection pooling with **`mysql2`**.
 
@@ -86,9 +86,16 @@ Run the SQL schema in MySQL Workbench or via terminal:
 ```bash
 mysql -u root -p < db/schema.sql
 ```
-*(This creates database `stockpilot`, all 8 tables, indexes, triggers, stored procedures, views, and initial seed data).*
+This creates database `stockpilot`, all 8 tables, indexes, triggers, stored procedures, views, and initial seed data. **The schema script drops and recreates the `stockpilot` database**, so do not run it if you need to preserve existing data.
 
-### Step 4: Run Development Server
+### Step 4: Load the full sample dataset
+Run this after schema setup to load the full demonstration inventory:
+```bash
+mysql -u root -p < db/seed_large.sql
+```
+This loads 20 categories, 75 suppliers, 550 customers, 100 products, purchase orders, and 120 sample sales. The seed script **clears all existing rows** in the inventory, customer, supplier, purchase, and sales tables before loading its sample data. Do not run it against a database containing data you need to keep.
+
+### Step 5: Run Development Server
 ```bash
 npm run dev
 ```
@@ -103,7 +110,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
    - Low stock alert table directly from MySQL `low_stock_products` view.
    - Recent sales from MySQL `sales_summary` view.
    - Sales-by-category revenue distribution chart.
-   - SQL schema inspection modal for college viva / presentation.
+   - SQL schema inspection modal for reviewing database triggers, views, and stored procedures.
 
 2. **Products Catalog (`/products`)**:
    - Filterable data table with search and category dropdown.

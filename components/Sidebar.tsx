@@ -61,8 +61,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
             <div>
               <span className="tracking-tight">Stock<span className="text-amber-500">Pilot</span></span>
-              <span className="block text-[10px] uppercase font-semibold text-muted-theme tracking-widest -mt-1">
-                RDBMS Inventory
+              <span className="block text-[10px] font-medium text-muted-theme tracking-wide -mt-0.5">
+                Inventory Management
               </span>
             </div>
           </Link>
